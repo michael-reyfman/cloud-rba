@@ -85,7 +85,7 @@ router.post("/putData", (req, res) => {
 app.use("/api", router);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "public", "index.html"));
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 // launch our backend into a port
