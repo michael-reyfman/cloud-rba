@@ -83,10 +83,10 @@ router.post("/putData", (req, res) => {
 
 // append /api for our http requests
 app.use("/api", router);
-app.use(express.static(path.join(__dirname, "client", "public")))
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "public", "index.html"));
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 // launch our backend into a port
