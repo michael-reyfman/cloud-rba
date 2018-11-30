@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
 import Header from './components/Header'
+import Params from './components/Params'
 import Form from './components/Form'
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Params />
         <Form onSubmit={this.submit}/>
       </div>
     );

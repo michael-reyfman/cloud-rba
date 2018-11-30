@@ -3,22 +3,23 @@ import ReactDOM from 'react-dom'
 import { createStore, combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { Provider } from 'react-redux'
-
+import paramsReducer from './utils/paramsReducer'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 import './index.css'
 
 const rootReducer = combineReducers({
-    form: formReducer,
+  form: formReducer,
+  params: paramsReducer,
 })
 
 const store = createStore(rootReducer)
 
 const Wrapper = () => (
-    <Provider store={store}>
-        <App />
-    </Provider>
+  <Provider store={store}>
+    <App />
+  </Provider>
 )
 
 ReactDOM.render(<Wrapper />, document.getElementById('root'))
