@@ -4,7 +4,10 @@ import { reduxForm } from 'redux-form'
 const validate = values => {
     const errors = {}
     if(!values.age) {
-        errors.age = 'Required'
+        errors.age = 'Укажите свой возраст'
+    }
+    if(!values.gender) {
+      errors.gender = 'Укажите пол'
     }
     return errors
 }

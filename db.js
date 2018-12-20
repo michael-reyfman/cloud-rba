@@ -4,8 +4,13 @@ const Schema = mongoose.Schema;
 // this will be our data base's data structure
 const DataSchema = new Schema(
     {
-        id: Number,
-        message: String
+      age: Number,
+      gender: String,
+      red_blood_cells: Number,
+      white_blood_cells: Number,
+      color: Number,
+      trombs: Number,
+      hemoglobin: Number,
     },
     { timestamps: true }
 );

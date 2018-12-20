@@ -1,6 +1,6 @@
 import Params from './Params'
 import { connect } from 'react-redux'
-import { toggle } from "../../utils/paramsReducer"
+import { toggle } from "../../utils/reducers/paramsReducer"
 
 const mapStateToProps = state => ({
   params: state.params

@@ -3,8 +3,8 @@ import { Typography } from '@material-ui/core'
 
 export default function Header() {
   return(
-    <Typography variant="h2" color="primary">
-      Interpret your blood test results
+    <Typography variant="h3" color="primary" style={{marginBottom: 24}}>
+      Проверьте Ваш анализ крови, прямо здесь и сейчас!
     </Typography>
   )
 }

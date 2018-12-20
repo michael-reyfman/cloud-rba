@@ -32,14 +32,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
 
-// this is our get method
-// this method fetches all available data in our database
+router.get("/test", (req, res) => {
+    return res.json({
+        success: true,
+        data: 'Test works for real!'
+    })
+})
+
 router.get("/getData", (req, res) => {
-    Data.find((err, data) => {
-        if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true, data: data });
-    });
-});
+  Data.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+})
+
+router.post("/postData", (req, res) => {
+  const data = new Data(req.body)
+  data.save(err => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true });
+  })
+})
 
 // this is our update method
 // this method overwrites existing data in our database

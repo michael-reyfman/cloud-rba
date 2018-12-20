@@ -1,29 +1,39 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Route } from 'react-router-dom'
+// import PrivateRoute from './utils/PrivateRoute'
+
 import './App.css'
 
+import Home from './components/Home'
+import Auth from './components/Auth'
 import Header from './components/Header'
-import Params from './components/Params'
 import Form from './components/Form'
+import axios from "axios";
 
-class App extends Component {
+class RoutedApp extends React.Component {
   constructor(props) {
     super(props)
-    this.submit = this.submit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  submit(values) {
+  handleSubmit(values) {
     console.log(values)
+    console.log('submitting')
+    axios.post('/api/postData', values)
+      .then(res => console.log(res))
+      .catch(e => console.error(e))
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Params />
-        <Form onSubmit={this.submit}/>
+        <Route exact path="/" component={Home} />
+        <Route path="/auth" component={Auth} />
+        <Route path="/app" render={props => <Form {...props} onSubmit={this.handleSubmit} />} />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default RoutedApp
